@@ -8,6 +8,8 @@ header = $ "header",[
   ]
   $ "title",[
     $.text "oh my god"
-    $.color "blck"
+    $.color "black"
   ]
 ]
+
+module.exports=header

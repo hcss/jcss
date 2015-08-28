@@ -12,18 +12,18 @@ dom =(selector,contents)->
     else if (item instanceof Dom)
       child = item
       tagAndSelector.push(item)
-  completeSelector tagAndSelector
+  generateCompleteSelector tagAndSelector
 
 
   tagAndSelector
 dom.text = (value)->
 
 # 遍历子节点 将selector 改成给予父类的完整路径
-completeSelector = (tagAndSelector)->
-  if tagAndSelector? and tagAndSelector.length > 0
+generateCompleteSelector = (tagAndSelector)->
+  if tagAndSelector? and tagAndSelector.length? and tagAndSelector.length > 0
     for e in tagAndSelector
-      e.selector = tagAndSelector.selector + ">" + e.selector
-      completeSelector e
+      e.completeSelector=tagAndSelector.completeSelector+">"+e.selector
+      generateCompleteSelector e
 
 
 
@@ -34,6 +34,7 @@ class Dom extends Array
 
   constructor: (selector) ->
     this.selector=selector
+    this.completeSelector=selector
   css:()->
     this.width=20
 

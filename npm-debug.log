@@ -1,0 +1,51 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'link' ]
+2 info using npm@2.5.1
+3 info using node@v0.12.0
+4 verbose linkPkg /home/jarvan/jcss
+5 verbose gentlyRm vacuuming /usr/local/lib/node_modules/jcss
+6 verbose gentlyRm vacuuming /usr/local/lib/node_modules/jcss
+7 verbose link build target /usr/local/lib/node_modules/jcss
+8 verbose install where, what [ '/home/jarvan/jcss', [] ]
+9 verbose install where, deps [ '/home/jarvan/jcss',
+9 verbose install   [ 'underscore', 'gulp', 'gulp-coffee', 'gulp-coffeelint' ] ]
+10 verbose install where, peers [ '/home/jarvan/jcss', [] ]
+11 info preinstall jcss@0.0.1
+12 verbose already installed skipping gulp@^3.9.0 /home/jarvan/jcss
+13 verbose already installed skipping gulp-coffee@^2.3.1 /home/jarvan/jcss
+14 verbose already installed skipping gulp-coffeelint@^0.5.0 /home/jarvan/jcss
+15 verbose already installed skipping underscore@^1.8.3 /home/jarvan/jcss
+16 silly install resolved []
+17 info build /home/jarvan/jcss
+18 verbose linkStuff [ false, false, false, '/home/jarvan' ]
+19 info linkStuff jcss@0.0.1
+20 verbose linkBins jcss@0.0.1
+21 verbose linkMans jcss@0.0.1
+22 verbose rebuildBundles jcss@0.0.1
+23 verbose rebuildBundles [ '.bin', 'gulp', 'gulp-coffee', 'gulp-coffeelint', 'underscore' ]
+24 info install jcss@0.0.1
+25 info postinstall jcss@0.0.1
+26 info prepublish jcss@0.0.1
+27 info build /usr/local/lib/node_modules/jcss
+28 verbose linkStuff [ true,
+28 verbose linkStuff   '/usr/local/lib/node_modules',
+28 verbose linkStuff   true,
+28 verbose linkStuff   '/usr/local/lib/node_modules' ]
+29 info linkStuff jcss@0.0.1
+30 verbose linkBins jcss@0.0.1
+31 verbose link bins [ { jcss: 'node ./build/test.js' }, '/usr/local/bin', true ]
+32 verbose linkMans jcss@0.0.1
+33 verbose stack Error: ENOENT, chmod '/usr/local/lib/node_modules/jcss/node ./build/test.js'
+33 verbose stack     at Error (native)
+34 verbose cwd /home/jarvan/jcss
+35 error Linux 3.13.0-46-generic
+36 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "link"
+37 error node v0.12.0
+38 error npm  v2.5.1
+39 error path /usr/local/lib/node_modules/jcss/node ./build/test.js
+40 error code ENOENT
+41 error errno -2
+42 error enoent ENOENT, chmod '/usr/local/lib/node_modules/jcss/node ./build/test.js'
+42 error enoent This is most likely not a problem with npm itself
+42 error enoent and is related to npm not being able to find a file.
+43 verbose exit [ -2, true ]

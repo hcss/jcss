@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "jcss",
   "main": "build/jcss.js",
+  "bin":{
+    "jcss":"node ./build/test.js"
+
+  },
   "directories": {
     "example": "example"
   },

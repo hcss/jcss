@@ -1,24 +1,16 @@
-$=require "./jcss"
+  $=require "./jcss"
 
-header = $ "header",[
-  $.text "oh my god"
-  $ "img.logo",[
-    # $.backgroundColor "red"
-    # $.width "40px"
-    # $.attr.src "./img/jcss"
-    "width : 40px"
-  ]
-  $ "title",[
-    "height: 50px"
-    # $.color "black"
-  ]
-  $ "div",[
-    $ "div#my",[
 
+  header = $ "header",[
+    $.text "oh my god"
+    "background-color:#fff"
+    "margin-left:10px"
+    $ "img.logo",[
+      "width : 40px"
     ]
+
+
   ]
-]
 
-console.log header
-
-module.exports=header
+  $.render header
+  module.exports=header

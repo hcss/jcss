@@ -1,21 +1,30 @@
 _=require("underscore")
 
 dom =(selector,contents)->
-  console.log 11111111111111111111111111111111,selector
+  # console.log 11111111111111111111111111111111,selector
   throw new Error("selector must be string") unless _.isString(selector)
   throw new Error("content must be array") unless _.isArray(contents)
-  # item.call({}) for item in contents when _.isFunction(item)
-  # ()->
-  #   console.log @ is global
   tagAndSelector = new Dom(selector)
   for item in contents
     if(_.isString(item))
-      tagAndSelector.css(item)
+      style = item
+      tagAndSelector.css(style)
     else if (item instanceof Dom)
-      item.selector=selector+">"+item.selector
+      child = item
       tagAndSelector.push(item)
+  completeSelector tagAndSelector
+
+
   tagAndSelector
 dom.text = (value)->
+
+# 遍历子节点 将selector 改成给予父类的完整路径
+completeSelector = (tagAndSelector)->
+  if tagAndSelector? and tagAndSelector.length > 0
+    for e in tagAndSelector
+      e.selector = tagAndSelector.selector + ">" + e.selector
+      completeSelector e
+
 
 
 

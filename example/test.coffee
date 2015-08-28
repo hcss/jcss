@@ -8,11 +8,15 @@ header = $ "header",[
     # $.attr.src "./img/jcss"
     "width : 40px"
   ]
-  # $ "title",[
-  #
+  $ "title",[
+    "height: 50px"
+    # $.color "black"
+  ]
+  $ "div",[
+    $ "div",[
 
-  #   # $.color "black"
-  # ]
+    ]
+  ]
 ]
 
 console.log header

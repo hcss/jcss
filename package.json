@@ -1,0 +1,30 @@
+{
+  "name": "jcss",
+  "version": "0.0.1",
+  "description": "jcss",
+  "main": "build/jcss.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hcss/jcss.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hcss/jcss/issues"
+  },
+  "homepage": "https://github.com/hcss/jcss#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-coffee": "^2.3.1",
+    "gulp-coffeelint": "^0.5.0"
+  },
+  "dependencies": {
+    "underscore": "^1.8.3"
+  }
+}

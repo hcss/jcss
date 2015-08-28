@@ -3,7 +3,6 @@
 
 
   dom =(selector,contents)->
-
     throw new Error("selector must be string") unless _.isString(selector)
     throw new Error("content must be array") unless _.isArray(contents)
     tagAndSelector = new Dom(selector)
@@ -15,11 +14,14 @@
         child = item
         tagAndSelector.push(item)
     generateCompleteSelector tagAndSelector
-
-
     tagAndSelector
-  dom.render = (value)->
-    
+
+
+  dom.render=(tas)->
+    # console.log tas
+    throw new Error("must be a instance of Dom") unless tas instanceof Dom
+    console.log tas
+
 
   # absolut  completeSelector for example div -> header>div
   generateCompleteSelector = (tagAndSelector)->

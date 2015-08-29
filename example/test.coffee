@@ -7,6 +7,16 @@
     $ "img.logo",[
       "width : 40px"
     ]
+    $ "title#beigin",[
+      $ "span#content",[
+        "color : red"
+        $ "span[href='a']",[
+          "color : red"
+
+        ]
+      ]
+
+    ]
 
 
   ]

@@ -1,12 +1,19 @@
   _=require("underscore")
   module.exports=(tagAndSelector)->
+    #console.log tagAndSelector
     console.log tagAndSelector
-    renderToTags tagAndSelector
+    # _renderToTags tagAndSelector
     tags=[]
 
 
-  renderToTags=(tagAndSelector,tags)->
-    if tagAndSelector? and tagAndSelector.length? and tagAndSelector.length > 0
-      for e in tagAndSelector
-        console.log e.selector.match(/^\w*\b|\.\w*\b|\#\w*\b|\b\[\w*\]\b/g)
-        renderToTags e,[]
+  _renderToTags=(tas,tags)->
+
+
+
+
+      # for selector in selectors
+
+
+    if tas? and tas.length? and tas.length > 0
+      for e in tas
+        _renderToTags e,[]

@@ -16,7 +16,7 @@
       else if (item instanceof Dom)
         child = item
         tagAndSelector.push(item)
-    generateCompleteSelector tagAndSelector
+    _generateCompleteSelector tagAndSelector
     tagAndSelector
 
 
@@ -27,17 +27,19 @@
 
 
   # absolut  completeSelector for example div -> header>div
-  generateCompleteSelector = (tagAndSelector)->
+  _generateCompleteSelector = (tagAndSelector)->
     if tagAndSelector? and tagAndSelector.length? and tagAndSelector.length > 0
       for e in tagAndSelector
         e.completeSelector=tagAndSelector.completeSelector+">"+e.selector
-        generateCompleteSelector e
+        _generateCompleteSelector e
 
   class Dom extends Array
 
     constructor: (selector) ->
-      this.selector=selector
-      this.style={}
+      @selector=selector
+
+      @style={}
+      [@tagName,@className,@id]=_resolveSelector(selector)
     setStyle:(style)->
       style=style.trim()
       styles=style.split(":")
@@ -52,3 +54,21 @@
         throw new Error("please checkout your css")
 
   module.exports=dom
+
+  #resolve selector to class  for example #77=>id="77" .name => className="name"
+  _resolveSelector = (selector)->
+    # tagName,className,id=""
+    # match tagSelector classSelector attrselector
+    className=""
+    id=""
+    selectors= selector.match(/^\w*\b|\.\w*\b|\#\w*\b|\[\w*\=?\w*]/g)
+    unless (/^\w*$/g).test(selectors[0])
+      throw new Error("first place must be tagSelector")
+    else
+      tagName=selectors[0]
+      for selector in selectors[1...]
+        if (/^\.\w*$/g).test(selector)
+          className=selector.replace(/^\./,'')
+        else if (/^#\w*$/g).test(selector)
+          id = selector.replace(/^#/,'')
+    [tagName,className,id]

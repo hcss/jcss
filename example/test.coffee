@@ -10,7 +10,7 @@
     $ "title#beigin",[
       $ "span#content",[
         "color : red"
-        $ "span[href='a']",[
+        $ "span[href=a]",[
           "color : red"
 
         ]

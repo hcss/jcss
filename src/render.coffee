@@ -4,6 +4,7 @@
   module.exports=(tagAndSelector)->
     #console.log tagAndSelector
     #console.log tagAndSelector
+    console.log tagAndSelector.attributes
     html= _renderToTags tagAndSelector
     css =_renderToCss tagAndSelector
     #console.log tagAndSelector
@@ -20,9 +21,12 @@
 
 
   _renderToTags=(tas)->
+    console.log tas.attributes
     html="<#{tas.tagName}"
-    html=html+" class="+tas.className if tas.className? and tas.className != ""
-    html=html+" id="+tas.id if tas.id? and tas.id != ""
+
+    for attribute in  tas.attributes
+      html=html+" "+attribute.name
+      html=html+"="+attribute.value+" " if attribute.value isnt ""
     html=html+">"
     if tas? and tas.length? and tas.length > 0
       for e in tas

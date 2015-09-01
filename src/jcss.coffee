@@ -37,9 +37,9 @@
 
     constructor: (selector) ->
       @selector=selector
-
+      @attributes=[]
       @style={}
-      [@tagName,@className,@id]=_resolveSelector(selector)
+      [@tagName,@className,@id,@attributes]=_resolveSelector(selector)
     setStyle:(style)->
       style=style.trim()
       styles=style.split(":")
@@ -55,20 +55,45 @@
 
   module.exports=dom
 
+
+
+
   #resolve selector to class  for example #77=>id="77" .name => className="name"
   _resolveSelector = (selector)->
     # tagName,className,id=""
     # match tagSelector classSelector attrselector
     className=""
     id=""
-    selectors= selector.match(/^\w*\b|\.\w*\b|\#\w*\b|\[\w*\=?\w*]/g)
+    attributes=[]
+    selectors= selector.match(/^\w*\b|\.\w*\b|\#\w*\b|\[\w*=?"?\w*\"?]/g)
     unless (/^\w*$/g).test(selectors[0])
       throw new Error("first place must be tagSelector")
     else
       tagName=selectors[0]
       for selector in selectors[1...]
+        #resove class
         if (/^\.\w*$/g).test(selector)
           className=selector.replace(/^\./,'')
+          attribute={
+            name:"class"
+            value:className
+          }
+          attributes.push(attribute)
+          #resove id
         else if (/^#\w*$/g).test(selector)
           id = selector.replace(/^#/,'')
-    [tagName,className,id]
+          attribute={
+            name:"id"
+            value:id
+          }
+          attributes.push(attribute)
+          #resove attr
+        else if (/^\[\w*=?"?\w*\"?]$/).test(selector)
+          selector=selector.replace(/["\[\]]/g,"")
+          attrSelector =selector.split("=")
+          attribute={
+            name:attrSelector[0]
+            value:attrSelector[1]||""
+          }
+          attributes.push(attribute)
+    [tagName,className,id,attributes]

@@ -13,3 +13,4 @@ if $ "a",[
   }
 
 ]
+ recommond attrselector writingstyle [href="ss"] don`t miss ""
